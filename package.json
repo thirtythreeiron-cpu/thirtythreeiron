@@ -1,0 +1,8 @@
+{
+  "name": "thirty-three-iron",
+  "version": "1.0.0",
+  "description": "Thirty-Three Iron website with Stripe payment",
+  "dependencies": {
+    "stripe": "^14.0.0"
+  }
+}
