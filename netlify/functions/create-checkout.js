@@ -35,10 +35,10 @@ exports.handler = async (event) => {
           price_data: {
             currency: 'usd',
             product_data: {
-              name: 'Thirty-Three Iron — Founding Member Deposit',
-              description: 'One-time non-refundable deposit applied to your first month\'s membership. Founding member rate: $40/mo for 6 months, then $45/mo locked for life.',
+              name: 'Thirty-Three Iron — Founding Membership',
+              description: 'First & last month dues ($40 + $40). Founding member rate: $40/mo for 6 months, then $45/mo locked for life. Includes exclusive founding member gear on opening day.',
             },
-            unit_amount: 5000, // $50.00 in cents
+            unit_amount: 8000, // $80.00 in cents
           },
           quantity: 1,
         },
