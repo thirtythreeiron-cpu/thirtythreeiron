@@ -1325,9 +1325,9 @@
     const phone = formData.get('phone');
     
     if (!name || !email || !phone) {
-      if (!name) document.getElementById('fname').style.borderColor = '#c9a84c';
-      if (!email) document.getElementById('femail').style.borderColor = '#c9a84c';
-      if (!phone) document.getElementById('fphone').style.borderColor = '#c9a84c';
+      if (!name) document.getElementById('f-name').style.borderColor = '#c9a84c';
+      if (!email) document.getElementById('f-email').style.borderColor = '#c9a84c';
+      if (!phone) document.getElementById('f-phone').style.borderColor = '#c9a84c';
       return;
     }
 
@@ -1335,7 +1335,10 @@
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(formData).toString()
+      body: new URLSearchParams({
+  'form-name': 'interest',
+  ...Object.fromEntries(formData)
+}).toString()
     })
     .then(response => {
       if (response.ok) {
