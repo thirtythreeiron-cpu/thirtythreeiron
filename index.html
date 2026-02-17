@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thirty-Three Iron — Christ-Centered Strength Training | Oklahoma City</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --dark: #111111;
+    --steel: #1a1a1a;
+    --iron: #222222;
+    --gold: #c9a84c;
+    --gold-light: #f0d78c;
+    --gold-dark: #8a7032;
+    --gold-glow: rgba(201, 168, 76, 0.3);
+    --white: #ffffff;
+    --off-white: #f5f0e8;
+    --light-gray: #d4d0c8;
+    --mid-gray: #888880;
+    --chalk: #aaa89e;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--black);
+    color: var(--off-white);
+    overflow-x: hidden;
+  }
+
+  /* ── NOISE TEXTURE ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 48px;
+    background: linear-gradient(to bottom, rgba(10,10,10,0.97), transparent);
+  }
+
+  .nav-logo {
+    font-family: 'Cinzel', serif;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: var(--white);
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  .nav-logo span { color: var(--gold); }
+
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    color: var(--chalk);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ── SECTION LABEL ── */
+  .section-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold-dark), transparent);
+    opacity: 0.3;
+    margin: 0 48px;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center top, rgba(201,168,76,0.06) 0%, transparent 60%),
+                radial-gradient(ellipse at center bottom, rgba(201,168,76,0.03) 0%, transparent 50%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 40px;
+    animation: fadeUp 1.2s ease-out;
+  }
+
+  /* INLINE SVG SHIELD LOGO */
+  .hero-logo {
+    width: 220px;
+    height: auto;
+    margin: 0 auto 40px;
+    display: block;
+    filter: drop-shadow(0 0 40px rgba(201,168,76,0.15));
+  }
+
+  .hero-tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+  }
+
+  .hero-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(48px, 8vw, 80px);
+    font-weight: 800;
+    line-height: 1.05;
+    color: var(--white);
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .hero-title span {
+    display: block;
+    color: var(--gold);
+    font-size: clamp(56px, 10vw, 96px);
+    letter-spacing: 10px;
+  }
+
+  .hero-sub {
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--light-gray);
+    max-width: 580px;
+    margin: 24px auto 20px;
+  }
+
+  .hero-verse {
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--gold-dark);
+    letter-spacing: 1px;
+    font-style: italic;
+    margin-bottom: 36px;
+  }
+
+  .hero-cta {
+    display: inline-block;
+    padding: 16px 48px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color: var(--black);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    border: none;
+  }
+  .hero-cta:hover {
+    background: linear-gradient(135deg, var(--gold-light), var(--gold));
+    transform: translateY(-2px);
+    box-shadow: 0 8px 40px var(--gold-glow);
+  }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    animation: fadeIn 2s ease-out 1s both;
+  }
+  .scroll-indicator span {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--chalk);
+  }
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: var(--gold);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  /* ── VISION ── */
+  .vision {
+    position: relative;
+    padding: 120px 48px;
+  }
+
+  .vision-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 20% 50%, rgba(201,168,76,0.03) 0%, transparent 60%);
+  }
+
+  .vision-content {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .vision-heading {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.15;
+    letter-spacing: 3px;
+    margin-bottom: 48px;
+  }
+
+  .vision-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .vision-text p {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.9;
+    color: var(--light-gray);
+    margin-bottom: 20px;
+  }
+
+  .vision-values {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .value-item {
+    padding: 28px;
+    border-left: 3px solid var(--gold);
+    background: rgba(201,168,76,0.03);
+  }
+
+  .value-item h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+
+  .value-item p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--chalk);
+  }
+
+  /* ── QUOTE ── */
+  .quote-section {
+    padding: 100px 48px;
+    text-align: center;
+    position: relative;
+  }
+
+  .big-quote {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(24px, 4vw, 42px);
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--chalk);
+    max-width: 800px;
+    margin: 0 auto;
+    letter-spacing: 1px;
+  }
+  .big-quote span { color: var(--gold); font-weight: 700; }
+
+  /* ── CULTURE ── */
+  .culture {
+    padding: 120px 48px;
+    position: relative;
+  }
+
+  .culture-content {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .culture-heading {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.15;
+    letter-spacing: 3px;
+    margin-bottom: 48px;
+  }
+
+  .culture-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .culture-card {
+    padding: 36px;
+    background: var(--steel);
+    border: 1px solid rgba(201,168,76,0.15);
+    transition: all 0.3s;
+  }
+
+  .culture-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(201,168,76,0.1);
+  }
+
+  .culture-card h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .culture-card p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--chalk);
+  }
+
+  /* ── AUDIENCE (WHO THIS IS FOR) ── */
+  .audience {
+    padding: 120px 48px;
+    position: relative;
+  }
+
+  .audience-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+  }
+
+  .audience-heading {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(28px, 3.5vw, 40px);
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 2px;
+    margin-bottom: 32px;
+  }
+
+  .audience-list {
+    list-style: none;
+  }
+
+  .audience-list li {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--light-gray);
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(201,168,76,0.1);
+    padding-left: 24px;
+    position: relative;
+  }
+
+  .audience-list.for-list li::before {
+    content: '✦';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 10px;
+    top: 16px;
+  }
+
+  .audience-list.not-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--mid-gray);
+    font-size: 14px;
+    top: 12px;
+  }
+
+  /* ── FOUNDING ── */
+  .founding {
+    padding: 120px 48px;
+    position: relative;
+  }
+
+  .founding-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(201,168,76,0.04) 0%, transparent 60%);
+  }
+
+  .founding-content {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .founding-header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .founding-heading {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.15;
+    letter-spacing: 3px;
+    margin-bottom: 16px;
+  }
+
+  .founding-sub {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--chalk);
+    max-width: 550px;
+    margin: 0 auto;
+  }
+
+  .offer-card {
+    background: linear-gradient(135deg, var(--steel), var(--iron));
+    border: 1px solid rgba(201,168,76,0.25);
+    padding: 56px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .offer-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+  }
+
+  .offer-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+  }
+
+  .pricing-highlight {
+    display: flex;
+    align-items: baseline;
+    gap: 32px;
+    margin-bottom: 36px;
+    flex-wrap: wrap;
+  }
+
+  .price-main {
+    font-family: 'Cinzel', serif;
+    font-size: 64px;
+    font-weight: 800;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .price-main small {
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--chalk);
+  }
+
+  .price-detail {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--light-gray);
+    line-height: 1.7;
+  }
+  .price-detail strong {
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  .offer-perks {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 36px;
+  }
+
+  .perk {
+    padding: 16px 20px;
+    background: rgba(201,168,76,0.05);
+    border-left: 2px solid var(--gold-dark);
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--light-gray);
+  }
+
+  .offer-cta {
+    display: inline-block;
+    padding: 18px 56px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color: var(--black);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+  }
+  .offer-cta:hover {
+    background: linear-gradient(135deg, var(--gold-light), var(--gold));
+    transform: translateY(-2px);
+    box-shadow: 0 8px 40px var(--gold-glow);
+  }
+
+  .spots-left {
+    display: block;
+    margin-top: 16px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  /* ── FAQ ── */
+  .faq {
+    padding: 120px 48px;
+  }
+
+  .faq-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .faq-heading {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 3px;
+    margin-bottom: 48px;
+    text-align: center;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+    overflow: hidden;
+  }
+
+  .faq-q {
+    padding: 24px 0;
+    font-family: 'Cinzel', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--white);
+    letter-spacing: 1px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.3s;
+  }
+  .faq-q:hover { color: var(--gold); }
+
+  .faq-q::after {
+    content: '+';
+    font-size: 24px;
+    font-weight: 300;
+    color: var(--gold);
+    transition: transform 0.3s;
+  }
+
+  .faq-item.open .faq-q::after {
+    transform: rotate(45deg);
+  }
+
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--chalk);
+  }
+
+  .faq-item.open .faq-a {
+    max-height: 300px;
+    padding-bottom: 24px;
+  }
+
+  /* ── CONTACT ── */
+  .contact {
+    padding: 100px 48px;
+    text-align: center;
+  }
+
+  .contact-heading {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 3px;
+    margin-bottom: 28px;
+  }
+
+  .contact-info {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--chalk);
+    line-height: 2;
+    margin-bottom: 16px;
+  }
+  .contact-info a {
+    color: var(--gold);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .contact-info a:hover { color: var(--gold-light); }
+
+  .contact-location {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--mid-gray);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 64px 48px;
+    background: var(--black);
+    border-top: 1px solid rgba(201,168,76,0.15);
+    text-align: center;
+  }
+
+  .footer-logo {
+    font-family: 'Cinzel', serif;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 6px;
+    color: var(--white);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+  .footer-logo span { color: var(--gold); }
+
+  .footer-tagline {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    margin-bottom: 12px;
+  }
+
+  .footer-text {
+    font-size: 13px;
+    color: var(--mid-gray);
+    letter-spacing: 2px;
+  }
+
+  /* ── MODAL ── */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(8px);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+  }
+  .modal-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .modal {
+    background: var(--steel);
+    border: 1px solid rgba(201,168,76,0.3);
+    max-width: 520px;
+    width: 90%;
+    padding: 48px 40px;
+    position: relative;
+    transform: translateY(20px);
+    transition: transform 0.4s ease;
+  }
+  .modal-overlay.active .modal {
+    transform: translateY(0);
+  }
+
+  .modal::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 16px; right: 20px;
+    background: none;
+    border: none;
+    color: var(--chalk);
+    font-size: 28px;
+    cursor: pointer;
+    transition: color 0.3s;
+    line-height: 1;
+  }
+  .modal-close:hover { color: var(--gold); }
+
+  .modal-title {
+    font-family: 'Cinzel', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+
+  .modal-sub {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--chalk);
+    margin-bottom: 32px;
+    line-height: 1.6;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-group label {
+    display: block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    padding: 14px 16px;
+    background: var(--iron);
+    border: 1px solid rgba(201,168,76,0.2);
+    color: var(--off-white);
+    font-family: 'Barlow', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    outline: none;
+    transition: border-color 0.3s;
+    -webkit-appearance: none;
+    border-radius: 0;
+  }
+
+  .form-group input::placeholder {
+    color: var(--mid-gray);
+  }
+
+  .form-group input:focus,
+  .form-group select:focus {
+    border-color: var(--gold);
+  }
+
+  .form-group select {
+    cursor: pointer;
+    color: var(--mid-gray);
+  }
+  .form-group select.selected {
+    color: var(--off-white);
+  }
+
+  .form-group select option {
+    background: var(--iron);
+    color: var(--off-white);
+  }
+
+  .form-submit {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color: var(--black);
+    font-family: 'Barlow', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 28px;
+  }
+  .form-submit:hover {
+    background: linear-gradient(135deg, var(--gold-light), var(--gold));
+    transform: translateY(-2px);
+    box-shadow: 0 8px 40px var(--gold-glow);
+  }
+
+  .form-note {
+    font-size: 12px;
+    color: var(--mid-gray);
+    text-align: center;
+    margin-top: 16px;
+    letter-spacing: 1px;
+  }
+
+  /* Success state */
+  .modal-success {
+    display: none;
+    text-align: center;
+    padding: 20px 0;
+  }
+  .modal-success.show { display: block; }
+  .modal-form.hidden { display: none; }
+
+  .success-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .success-title {
+    font-family: 'Cinzel', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+
+  .success-text {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--chalk);
+    line-height: 1.7;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 0.6; }
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+
+  .reveal {
+    opacity: 0; transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.visible {
+    opacity: 1; transform: translateY(0);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 20px 24px; }
+    .nav-links { display: none; }
+    .hero-content { padding: 0 20px; }
+    .hero-logo { width: 160px; }
+    .vision, .founding, .culture, .faq, .audience { padding: 80px 24px; }
+    .vision-grid { grid-template-columns: 1fr; gap: 40px; }
+    .culture-grid { grid-template-columns: 1fr; }
+    .audience-content { grid-template-columns: 1fr; gap: 48px; }
+    .offer-card { padding: 40px 28px; }
+    .offer-perks { grid-template-columns: 1fr; }
+    .quote-section { padding: 80px 24px; }
+    .pricing-highlight { flex-direction: column; align-items: center; gap: 24px; }
+    .contact { padding: 80px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Thirty-Three <span>Iron</span></a>
+  <ul class="nav-links">
+    <li><a href="#vision">Vision</a></li>
+    <li><a href="#culture">Culture</a></li>
+    <li><a href="#founding">Founding Members</a></li>
+    <li><a href="investor.html">Investors</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <!-- INLINE SHIELD LOGO (Concept 3) -->
+    <svg class="hero-logo" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+      <!-- Shield shape -->
+      <path d="M200 10 L380 80 L380 260 Q380 420 200 490 Q20 420 20 260 L20 80 Z"
+            fill="#1a1a1a" stroke="#c9a84c" stroke-width="2.5"/>
+      <!-- Inner shield border -->
+      <path d="M200 35 L362 98 L362 255 Q362 405 200 465 Q38 405 38 255 L38 98 Z"
+            fill="none" stroke="#c9a84c" stroke-width="0.8" opacity="0.4"/>
+      <!-- Large 33 -->
+      <text x="200" y="280" text-anchor="middle" font-family="'Cinzel', 'Playfair Display', 'Georgia', serif" font-size="160" font-weight="900" fill="#c9a84c">33</text>
+      <!-- Cross between 3s at top -->
+      <line x1="200" y1="108" x2="200" y2="145" stroke="#c9a84c" stroke-width="2.5"/>
+      <line x1="184" y1="122" x2="216" y2="122" stroke="#c9a84c" stroke-width="2.5"/>
+      <!-- IRON text -->
+      <text x="200" y="385" text-anchor="middle" font-family="'Cinzel', 'Playfair Display', 'Georgia', serif" font-size="42" font-weight="400" fill="#c9a84c" letter-spacing="14">IRON</text>
+      <!-- Decorative dots -->
+      <circle cx="128" cy="370" r="2.5" fill="#c9a84c"/>
+      <circle cx="272" cy="370" r="2.5" fill="#c9a84c"/>
+    </svg>
+
+    <p class="hero-tag">Christ-Centered Strength Training</p>
+    <h1 class="hero-title">
+      Thirty-Three
+      <span>Iron</span>
+    </h1>
+    <p class="hero-sub">
+      A serious training ground for weightlifting, powerlifting, and bodybuilding — built on a foundation of Christian faith, discipline, and community. No gimmicks. No shortcuts. Just the iron and the truth.
+    </p>
+    <p class="hero-verse">"As iron sharpens iron, so one person sharpens another." — Proverbs 27:17</p>
+    <a href="founding-member-agreement.html" class="hero-cta">Become a Founding Member</a>
+  </div>
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- VISION -->
+<section class="vision" id="vision">
+  <div class="vision-bg"></div>
+  <div class="vision-content">
+    <div class="reveal">
+      <p class="section-label">Our Vision</p>
+      <h2 class="vision-heading">Faithfulness Over<br>Popularity.</h2>
+    </div>
+    <div class="vision-grid">
+      <div class="vision-text reveal" style="transition-delay: 0.1s;">
+        <p>
+          Thirty-Three Iron exists to glorify God by creating a space where strength training is pursued with discipline, excellence, and biblical integrity. We believe the pursuit of physical strength, when properly ordered, reflects the stewardship of the body as a gift from God.
+        </p>
+        <p>
+          This is not a church. This is not a ministry masquerading as a business. This is a gym — unapologetically Christ-centered — where serious lifters can train hard, grow strong, and encounter a culture shaped by faith without pretense or performance.
+        </p>
+        <p>
+          We exist to serve those who respect the iron, value discipline over comfort, and are either curious about or committed to a Christian worldview. We are not for everyone, and that is by design.
+        </p>
+      </div>
+      <div class="vision-values reveal" style="transition-delay: 0.2s;">
+        <div class="value-item">
+          <h3>Christ Is Central, Not Decorative</h3>
+          <p>Faith shapes our culture, standards, and decision-making. It is not a marketing angle or aesthetic choice. We do not use faith language to manipulate or sell memberships.</p>
+        </div>
+        <div class="value-item">
+          <h3>Excellence in Training</h3>
+          <p>This is a serious facility for weightlifting, powerlifting, and bodybuilding. We will never dilute programming or compromise equipment quality to chase broader appeal.</p>
+        </div>
+        <div class="value-item">
+          <h3>Stewardship Over Profit</h3>
+          <p>Growth that requires us to abandon our mission or water down our standards will be rejected. Profits are reinvested in the gym, used for scholarships, or allocated by policy — not extracted for personal gain.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- QUOTE -->
+<section class="quote-section">
+  <p class="big-quote reveal">
+    "Then you will know the truth, and <span>the truth will set you free.</span>"
+    <br><small style="font-size: 16px; color: var(--gold-dark); letter-spacing: 2px;">— John 8:32</small>
+  </p>
+</section>
+
+<div class="divider"></div>
+
+<!-- CULTURE -->
+<section class="culture" id="culture">
+  <div class="culture-content">
+    <div class="reveal">
+      <p class="section-label">What We're Building</p>
+      <h2 class="culture-heading">More Than a Gym.</h2>
+    </div>
+    <div class="culture-grid">
+      <div class="culture-card reveal" style="transition-delay: 0.05s;">
+        <h3>Weekly Bible Study</h3>
+        <p>Optional weekly gathering before the gym opens. Come for the Word, stay for the iron. No pressure, no guilt — just an open invitation to grow.</p>
+      </div>
+      <div class="culture-card reveal" style="transition-delay: 0.1s;">
+        <h3>Volunteer Chaplains</h3>
+        <p>On-site chaplains available for conversation, prayer, or just someone to talk to. Not therapists — just brothers and sisters who care.</p>
+      </div>
+      <div class="culture-card reveal" style="transition-delay: 0.15s;">
+        <h3>Serious Equipment</h3>
+        <p>Competition-grade bars, calibrated plates, specialty equipment for powerlifting, weightlifting, and bodybuilding. No compromises on the tools.</p>
+      </div>
+      <div class="culture-card reveal" style="transition-delay: 0.2s;">
+        <h3>Accountability Culture</h3>
+        <p>Iron sharpens iron. Members hold each other to a high standard — in training, in character, and in how we treat one another.</p>
+      </div>
+      <div class="culture-card reveal" style="transition-delay: 0.25s;">
+        <h3>Community Events</h3>
+        <p>Powerlifting meets, strongman competitions, cookouts, service projects. This community shows up for each other inside and outside the gym.</p>
+      </div>
+      <div class="culture-card reveal" style="transition-delay: 0.3s;">
+        <h3>Scholarship Fund</h3>
+        <p>A portion of revenue goes toward subsidizing memberships for those who can't afford it. If you want to train and you're willing to work, finances won't stop you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- AUDIENCE -->
+<section class="audience" id="audience">
+  <div class="audience-content">
+    <div class="reveal">
+      <h2 class="audience-heading">This Is For You If...</h2>
+      <ul class="audience-list for-list">
+        <li>You take your training seriously — whether you're a beginner or compete</li>
+        <li>You want a gym where faith is the foundation, not a gimmick</li>
+        <li>You value accountability, discipline, and doing hard things</li>
+        <li>You're not a Christian but you respect the culture and want to train here</li>
+        <li>You believe strength is a stewardship, not just a hobby</li>
+      </ul>
+    </div>
+    <div class="reveal" style="transition-delay: 0.15s;">
+      <h2 class="audience-heading">This Is Not For You If...</h2>
+      <ul class="audience-list not-list">
+        <li>You're looking for a Planet Fitness experience with TVs on every wall</li>
+        <li>You want to be told what you want to hear, not what you need to hear</li>
+        <li>You're hostile to faith or want to argue about it rather than respect it</li>
+        <li>You're looking for a social media gym — we train here, we don't perform</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FOUNDING MEMBER OFFER -->
+<section class="founding" id="founding">
+  <div class="founding-bg"></div>
+  <div class="founding-content">
+    <div class="founding-header reveal">
+      <p class="section-label">Limited Availability</p>
+      <h2 class="founding-heading">Founding Member<br>Access</h2>
+      <p class="founding-sub">
+        Be part of the foundation. Founding members get locked-in rates, permanent perks, and the respect of being here from day one.
+      </p>
+    </div>
+
+    <div class="offer-card reveal" style="transition-delay: 0.1s;">
+      <p class="offer-label">Founding Member Rate</p>
+      <div class="pricing-highlight">
+        <div class="price-main">$80<small> upfront</small></div>
+        <div class="price-detail">
+          <strong>$80 upfront</strong> (first + last month)<br>
+          Then <strong>$40/month</strong> for 6 months<br>
+          Then locked at <strong>$45/month for life</strong><br>
+          General membership will be $50+/month
+        </div>
+      </div>
+
+      <div class="offer-perks">
+        <div class="perk">Permanent founding member pricing — never increases</div>
+        <div class="perk">Early access before the public grand opening</div>
+        <div class="perk">Input on equipment selection and gym layout</div>
+        <div class="perk">Founding member name on the wall</div>
+        <div class="perk">Priority registration for all events and competitions</div>
+        <div class="perk">Exclusive founding member gear (shirt + hoodie on opening day)</div>
+      </div>
+
+      <a href="founding-member-agreement.html" class="offer-cta">Claim Your Spot</a>
+      <span class="spots-left">Limited to first 50 members</span>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="faq-content">
+    <p class="section-label" style="text-align: center;">Common Questions</p>
+    <h2 class="faq-heading">Frequently Asked</h2>
+
+    <div class="faq-item reveal">
+      <div class="faq-q">Is this a nonprofit or a business?</div>
+      <div class="faq-a">It's a business — run with integrity and stewardship principles. We exist to serve people and glorify God, not to make anyone wealthy. Profits are reinvested in the gym, used for scholarships, or allocated by policy — not extracted for personal gain.</div>
+    </div>
+
+    <div class="faq-item reveal" style="transition-delay: 0.1s;">
+      <div class="faq-q">Will there be pressure to join Bible studies or prayer?</div>
+      <div class="faq-a">No. Faith is central to the culture, but participation in spiritual activities is always optional. You will never be guilted, pressured, or made to feel like a second-class member if you don't participate.</div>
+    </div>
+
+    <div class="faq-item reveal" style="transition-delay: 0.15s;">
+      <div class="faq-q">What if I'm not a Christian?</div>
+      <div class="faq-a">You're still welcome if you respect the culture and values. We're not here to force anyone into anything. But the gym will be unapologetically Christian in its foundation, standards, and leadership.</div>
+    </div>
+
+    <div class="faq-item reveal" style="transition-delay: 0.2s;">
+      <div class="faq-q">When does the gym open?</div>
+      <div class="faq-a">We're targeting a soft opening for founding members in August 2026, with a grand opening to the public in September 2026. Founding members will help shape the culture before Day 1.</div>
+    </div>
+
+    <div class="faq-item reveal" style="transition-delay: 0.25s;">
+      <div class="faq-q">Where will the gym be located?</div>
+      <div class="faq-a">Central Oklahoma City. The specific location is being finalized — we're looking for the right warehouse space that fits the vision. Founding members will be the first to know when we lock it in.</div>
+    </div>
+
+    <div class="faq-item reveal" style="transition-delay: 0.3s;">
+      <div class="faq-q">What does "33" mean?</div>
+      <div class="faq-a">Jesus Christ lived 33 years on this earth — and in those 33 years, He changed everything. The name is a reminder that every rep, every set, and every day in this gym is lived with purpose and pointed toward something greater than ourselves.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <h2 class="contact-heading reveal">Ready to Build<br>Something Real?</h2>
+  <div class="contact-info reveal" style="transition-delay: 0.1s;">
+    <strong style="color: var(--white); font-weight: 600;">Austin & Sammi Hill</strong> — Co-Founders<br>
+    <a href="tel:4059265886">(405) 926-5886</a>
+  </div>
+  <div class="contact-location reveal" style="transition-delay: 0.2s;">
+    Central Oklahoma City — Opening 2026
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Thirty-Three <span>Iron</span></div>
+  <div class="footer-tagline">Strength With Purpose</div>
+  <p class="footer-text">FORGED IN DISCIPLINE. BUILT ON TRUTH.</p>
+</footer>
+
+<!-- INTEREST FORM MODAL -->
+<div class="modal-overlay" id="interestModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">&times;</button>
+    
+    <div class="modal-form" id="modalForm">
+      <h3 class="modal-title">Claim Your Spot</h3>
+      <p class="modal-sub">Fill out the form below and Austin will reach out to you personally. No spam, no automated emails — just a real conversation.</p>
+      
+      <form name="interest" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="interestForm">
+        <input type="hidden" name="form-name" value="interest">
+        <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+        
+        <div class="form-group">
+          <label for="fname">Full Name</label>
+          <input type="text" id="fname" name="name" placeholder="Your name" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="femail">Email</label>
+          <input type="email" id="femail" name="email" placeholder="you@email.com" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="fphone">Phone Number</label>
+          <input type="tel" id="fphone" name="phone" placeholder="(405) 000-0000" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="fheard">How Did You Hear About Us?</label>
+          <select id="fheard" name="heard_about">
+            <option value="" disabled selected>Select one...</option>
+            <option value="Friend or Family">Friend or Family</option>
+            <option value="Social Media">Social Media</option>
+            <option value="Church">Church</option>
+            <option value="Google / Online Search">Google / Online Search</option>
+            <option value="Event or Competition">Event or Competition</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        
+        <button type="submit" class="form-submit">Submit Interest</button>
+        <p class="form-note">Limited to the first 50 founding members.</p>
+      </form>
+    </div>
+    
+    <div class="modal-success" id="modalSuccess">
+      <span class="success-icon">✦</span>
+      <h3 class="success-title">You're On the List</h3>
+      <p class="success-text">Thanks for your interest in Thirty-Three Iron. Austin will be in touch soon to talk next steps. Welcome to the foundation.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      document.querySelectorAll('.faq-item').forEach(i => {
+        if (i !== item) i.classList.remove('open');
+      });
+      item.classList.toggle('open');
+    });
+  });
+
+  // Modal
+  function openModal() {
+    document.getElementById('interestModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    document.getElementById('interestModal').classList.remove('active');
+    document.body.style.overflow = '';
+    setTimeout(() => {
+      document.getElementById('modalForm').classList.remove('hidden');
+      document.getElementById('modalSuccess').classList.remove('show');
+      document.getElementById('interestForm').reset();
+      document.getElementById('fheard').classList.remove('selected');
+    }, 400);
+  }
+
+  // Close on overlay click
+  document.getElementById('interestModal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+  });
+
+  // Select color change
+  document.getElementById('fheard').addEventListener('change', function() {
+    this.classList.add('selected');
+  });
+
+  // Netlify form submission via AJAX (stay on page, show success)
+  document.getElementById('interestForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const form = e.target;
+    const formData = new FormData(form);
+    
+    // Validate
+    const name = formData.get('name');
+    const email = formData.get('email');
+    const phone = formData.get('phone');
+    
+    if (!name || !email || !phone) {
+      if (!name) document.getElementById('fname').style.borderColor = '#c9a84c';
+      if (!email) document.getElementById('femail').style.borderColor = '#c9a84c';
+      if (!phone) document.getElementById('fphone').style.borderColor = '#c9a84c';
+      return;
+    }
+
+    // Submit to Netlify
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formData).toString()
+    })
+    .then(response => {
+      if (response.ok) {
+        document.getElementById('modalForm').classList.add('hidden');
+        document.getElementById('modalSuccess').classList.add('show');
+      } else {
+        alert('Something went wrong. Please try again or call Austin directly at (405) 926-5886.');
+      }
+    })
+    .catch(() => {
+      alert('Something went wrong. Please try again or call Austin directly at (405) 926-5886.');
+    });
+  });
+</script>
+</body>
+</html>
