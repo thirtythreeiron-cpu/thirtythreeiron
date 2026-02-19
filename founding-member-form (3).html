@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Founding Member Agreement — Thirty-Three Iron</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --dark: #111111;
+    --steel: #1a1a1a;
+    --iron: #222222;
+    --gold: #c9a84c;
+    --gold-light: #f0d78c;
+    --gold-dark: #8a7032;
+    --gold-glow: rgba(201, 168, 76, 0.3);
+    --white: #ffffff;
+    --off-white: #f5f0e8;
+    --light-gray: #d4d0c8;
+    --mid-gray: #888880;
+    --chalk: #aaa89e;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--black);
+    color: var(--off-white);
+    overflow-x: hidden;
+    line-height: 1.7;
+  }
+
+  /* Noise texture */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  /* Navigation */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 48px;
+    background: linear-gradient(to bottom, rgba(10,10,10,0.97), transparent);
+  }
+
+  .nav-logo {
+    font-family: 'Cinzel', serif;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: var(--white);
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  .nav-logo span { color: var(--gold); }
+
+  .back-link {
+    color: var(--chalk);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+  .back-link:hover { color: var(--gold); }
+
+  @media (max-width: 768px) {
+    nav { padding: 20px 24px; }
+    .nav-logo { font-size: 16px; letter-spacing: 2px; }
+  }
+
+  /* Container */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 140px 48px 80px;
+  }
+
+  @media (max-width: 768px) {
+    .container { padding: 120px 24px 60px; }
+  }
+
+  /* Header */
+  .header {
+    text-align: center;
+    margin-bottom: 60px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+  }
+
+  .header-logo {
+    width: 120px;
+    height: auto;
+    margin: 0 auto 30px;
+    display: block;
+    filter: drop-shadow(0 0 20px rgba(201,168,76,0.2));
+  }
+
+  .header-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .header-subtitle {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .company-info {
+    text-align: center;
+    font-size: 13px;
+    color: var(--mid-gray);
+    margin-bottom: 40px;
+    line-height: 1.8;
+  }
+
+  /* Section */
+  .section {
+    margin: 48px 0;
+  }
+
+  .section-title {
+    font-family: 'Cinzel', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(201,168,76,0.3);
+  }
+
+  .section-content {
+    color: var(--light-gray);
+    line-height: 1.9;
+  }
+
+  .section-content p {
+    margin-bottom: 16px;
+  }
+
+  .section-content ul {
+    margin: 16px 0 16px 32px;
+  }
+
+  .section-content li {
+    margin-bottom: 10px;
+  }
+
+  .section-content strong {
+    color: var(--white);
+    font-weight: 600;
+  }
+
+  /* Highlight boxes */
+  .highlight {
+    background: rgba(201,168,76,0.05);
+    border-left: 3px solid var(--gold);
+    padding: 24px;
+    margin: 24px 0;
+  }
+
+  .warning {
+    background: rgba(255,152,0,0.05);
+    border-left: 3px solid #ff9800;
+    padding: 24px;
+    margin: 24px 0;
+  }
+
+  .warning p {
+    color: var(--off-white);
+    font-weight: 500;
+  }
+
+  /* Form groups */
+  .form-group {
+    margin: 24px 0;
+  }
+
+  .form-group label {
+    display: block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 14px 18px;
+    background: var(--steel);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 0;
+    color: var(--off-white);
+    font-family: 'Barlow', sans-serif;
+    font-size: 15px;
+    transition: all 0.3s;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--gold);
+    background: var(--iron);
+    box-shadow: 0 0 0 3px var(--gold-glow);
+  }
+
+  .form-group input[type="date"] {
+    font-family: 'Barlow', sans-serif;
+  }
+
+  /* Checkbox group */
+  .checkbox-group {
+    margin: 32px 0;
+  }
+
+  .checkbox-group label {
+    display: flex;
+    align-items: start;
+    margin-bottom: 16px;
+    cursor: pointer;
+    color: var(--light-gray);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .checkbox-group input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+    margin-top: 2px;
+    cursor: pointer;
+    accent-color: var(--gold);
+  }
+
+  /* Signature section */
+  .signature-section {
+    margin: 60px 0;
+    padding: 40px;
+    background: rgba(201,168,76,0.03);
+    border: 1px solid rgba(201,168,76,0.2);
+  }
+
+  .signature-section h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .signature-box {
+    margin: 30px 0;
+    padding: 30px;
+    background: var(--steel);
+    border: 2px dashed rgba(201,168,76,0.3);
+  }
+
+  .signature-box label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .signature-box input {
+    width: 100%;
+    padding: 20px;
+    font-size: 28px;
+    font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
+    border: none;
+    border-bottom: 2px solid var(--gold);
+    text-align: center;
+    background: transparent;
+    color: var(--gold);
+  }
+
+  .signature-box input::placeholder {
+    color: var(--mid-gray);
+    opacity: 0.5;
+  }
+
+  .signature-date {
+    text-align: center;
+    margin-top: 16px;
+    color: var(--chalk);
+  }
+
+  .signature-date input {
+    display: inline-block;
+    width: auto;
+    padding: 8px 16px;
+    background: var(--iron);
+    border: 1px solid rgba(201,168,76,0.2);
+  }
+
+  /* Buttons */
+  .button-group {
+    margin: 60px 0 40px;
+    text-align: center;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  button {
+    padding: 16px 48px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color: var(--black);
+  }
+
+  .btn-primary:hover {
+    background: linear-gradient(135deg, var(--gold-light), var(--gold));
+    transform: translateY(-2px);
+    box-shadow: 0 8px 40px var(--gold-glow);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+  }
+
+  .btn-secondary:hover {
+    background: rgba(201,168,76,0.1);
+    border-color: var(--gold-light);
+  }
+
+  @media (max-width: 768px) {
+    .button-group {
+      flex-direction: column;
+      gap: 16px;
+    }
+    button {
+      width: 100%;
+    }
+  }
+
+  /* Footer note */
+  .footer-note {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(201,168,76,0.2);
+    font-size: 12px;
+    color: var(--mid-gray);
+    line-height: 1.8;
+  }
+
+  /* Print styles */
+  @media print {
+    body::before { display: none; }
+    nav { display: none; }
+    .container { padding-top: 40px; }
+    button { display: none; }
+    .signature-box { border-style: solid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+  <a href="index.html" class="nav-logo">Thirty-Three <span>Iron</span></a>
+  <a href="index.html" class="back-link">← Back to Home</a>
+</nav>
+
+<div class="container">
+  <!-- Header -->
+  <div class="header">
+    <!-- Shield Logo -->
+    <svg class="header-logo" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+      <path d="M200 10 L380 80 L380 260 Q380 420 200 490 Q20 420 20 260 L20 80 Z"
+            fill="#1a1a1a" stroke="#c9a84c" stroke-width="2.5"/>
+      <path d="M200 35 L362 98 L362 255 Q362 405 200 465 Q38 405 38 255 L38 98 Z"
+            fill="none" stroke="#c9a84c" stroke-width="0.8" opacity="0.4"/>
+      <text x="200" y="280" text-anchor="middle" font-family="'Cinzel', serif" font-size="160" font-weight="900" fill="#c9a84c">33</text>
+      <line x1="200" y1="108" x2="200" y2="145" stroke="#c9a84c" stroke-width="2.5"/>
+      <line x1="184" y1="122" x2="216" y2="122" stroke="#c9a84c" stroke-width="2.5"/>
+      <text x="200" y="385" text-anchor="middle" font-family="'Cinzel', serif" font-size="42" font-weight="400" fill="#c9a84c" letter-spacing="14">IRON</text>
+      <circle cx="128" cy="370" r="2.5" fill="#c9a84c"/>
+      <circle cx="272" cy="370" r="2.5" fill="#c9a84c"/>
+    </svg>
+
+    <h1 class="header-title">Founding Member<br>Agreement</h1>
+    <p class="header-subtitle">Christ-Centered Strength Training</p>
+  </div>
+
+  <div class="company-info">
+    <strong>Thirty-Three Iron LLC</strong><br>
+    2713 Ridgeview Dr., The Village, Oklahoma 73120<br>
+    austin@thirtythreeiron.com • (405) 926-5886
+  </div>
+
+  <div class="section-content">
+    <p><strong>THIS FOUNDING MEMBER AGREEMENT ("Agreement")</strong> is entered into on <input type="date" id="agreementDate" style="display: inline; width: 150px; padding: 4px 8px; background: var(--iron); border: 1px solid var(--gold); color: var(--gold);"> ("Effective Date"), by and between:</p>
+
+    <p><strong>THIRTY-THREE IRON LLC</strong>, an Oklahoma limited liability company<br>
+    2713 Ridgeview Dr., The Village, Oklahoma 73120<br>
+    ("Gym" or "Thirty-Three Iron")</p>
+
+    <p><strong>AND</strong></p>
+  </div>
+
+  <!-- Member Information -->
+  <div class="section">
+    <div class="section-title">Your Information</div>
+    
+    <div class="form-group">
+      <label for="memberName">Full Legal Name</label>
+      <input type="text" id="memberName" placeholder="John Smith" required>
+    </div>
+
+    <div class="form-group">
+      <label for="memberAddress">Street Address</label>
+      <input type="text" id="memberAddress" placeholder="123 Main Street" required>
+    </div>
+
+    <div class="form-group">
+      <label for="memberCity">City, State, Zip</label>
+      <input type="text" id="memberCity" placeholder="Oklahoma City, OK 73120" required>
+    </div>
+
+    <div class="form-group">
+      <label for="memberPhone">Phone Number</label>
+      <input type="tel" id="memberPhone" placeholder="(405) 555-1234" required>
+    </div>
+
+    <div class="form-group">
+      <label for="memberEmail">Email Address</label>
+      <input type="email" id="memberEmail" placeholder="john@example.com" required>
+    </div>
+  </div>
+
+  <!-- Agreement Terms -->
+  <div class="section">
+    <div class="section-title">1. Founding Member Status</div>
+    <div class="section-content">
+      <p>Founding Member shall be designated as a "Founding Member" of Thirty-Three Iron, with all rights and privileges associated with such status, provided this Agreement is executed and payment is received on or before <strong style="color: var(--gold);">August 1, 2026</strong>.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">2. Membership Fees & Payment Terms</div>
+    
+    <div class="highlight">
+      <p><strong>Initial Payment: $80.00</strong></p>
+      <p>This payment covers:</p>
+      <ul>
+        <li>The FIRST month of membership (Month 1)</li>
+        <li>The LAST month of the initial 6-month period (Month 6)</li>
+      </ul>
+    </div>
+
+    <div class="section-content">
+      <p><strong>Monthly Rate Structure:</strong></p>
+      <ul>
+        <li><strong>Months 1-6:</strong> Effective rate of $40/month (Month 1 and 6 already paid)</li>
+        <li><strong>Month 7 and beyond:</strong> $45/month LOCKED FOR LIFE</li>
+        <li><strong>Rate Lock Guarantee:</strong> Your rate will NEVER increase</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">3. Founding Member Benefits</div>
+    
+    <div class="highlight">
+      <p><strong>Exclusive Founding Member Benefits:</strong></p>
+      <ul>
+        <li>✓ <strong>Locked Lifetime Rate:</strong> $45/month forever, never increases</li>
+        <li>✓ <strong>Founding Member Hoodie:</strong> Exclusive black heavyweight hoodie ($60 value)</li>
+        <li>✓ <strong>Founding Member T-Shirt:</strong> Exclusive black heavyweight tee ($30 value)</li>
+        <li>✓ <strong>Name on Founders Wall:</strong> Permanently displayed in the gym</li>
+        <li>✓ <strong>Early Access:</strong> 2-4 weeks before public opening</li>
+        <li>✓ <strong>Priority Registration:</strong> For all events and competitions</li>
+        <li>✓ <strong>Equipment Input:</strong> Help select gym equipment and layout</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">4. Opening Date & Term</div>
+    <div class="section-content">
+      <p>Thirty-Three Iron anticipates opening in <strong>August/September 2026</strong>. If opening is delayed beyond December 31, 2026, you may choose to:</p>
+      <ul>
+        <li>Continue holding founding member status and await opening, OR</li>
+        <li>Request a full refund</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">5. Refund Policy</div>
+    
+    <div class="highlight">
+      <p><strong>You receive a FULL REFUND ($80) if:</strong></p>
+      <ul>
+        <li>Gym does not open by December 31, 2026</li>
+        <li>Gym closes before you complete 12 months of membership</li>
+        <li>Gym materially changes its Christ-centered mission before opening</li>
+        <li>You relocate more than 50 miles from Oklahoma City before opening</li>
+      </ul>
+    </div>
+
+    <div class="warning">
+      <p><strong>NO REFUND if:</strong></p>
+      <ul>
+        <li>You voluntarily cancel after gym opens and you've used the facility</li>
+        <li>Your membership is terminated for cause (rule violations, non-payment)</li>
+        <li>Change of mind after gym is operational</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">6. Gym Rules & Conduct</div>
+    <div class="section-content">
+      <p>You agree to comply with all gym rules and policies. Thirty-Three Iron operates as a <strong>Christ-centered facility</strong>. While participation in spiritual activities (Bible studies, prayer) is optional and voluntary, you agree to respect the Christian foundation and culture of the gym.</p>
+      <p>The gym reserves the right to terminate membership immediately, without refund, for violation of rules, threatening behavior, or failure to pay fees.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">7. Liability Waiver & Assumption of Risk</div>
+    
+    <div class="warning">
+      <p style="text-align: center; margin-bottom: 20px;"><strong>⚠️ READ CAREFULLY - THIS LIMITS YOUR LEGAL RIGHTS ⚠️</strong></p>
+    </div>
+
+    <div class="section-content">
+      <p><strong>You acknowledge</strong> that strength training, weightlifting, powerlifting, and bodybuilding involve inherent risks, including:</p>
+      <ul>
+        <li>Muscle strains, sprains, and tears</li>
+        <li>Broken bones and joint injuries</li>
+        <li>Cardiovascular events</li>
+        <li>In extreme cases, death</li>
+      </ul>
+
+      <p><strong>You voluntarily assume all risks</strong> associated with gym activities.</p>
+
+      <p><strong>TO THE MAXIMUM EXTENT PERMITTED BY OKLAHOMA LAW</strong>, you RELEASE, WAIVE, DISCHARGE, AND COVENANT NOT TO SUE Thirty-Three Iron LLC, its owners, officers, members, managers, employees, volunteers, and agents from any and all liability, claims, and causes of action arising from any loss, damage, injury, or death that may occur while participating in gym activities or while on gym premises.</p>
+
+      <p><strong>You agree to INDEMNIFY and HOLD HARMLESS</strong> the gym from any loss, liability, or costs incurred due to your participation, whether caused by negligence or otherwise.</p>
+    </div>
+  </div>
+
+  <!-- Acknowledgment Checkboxes -->
+  <div class="section">
+    <div class="section-title">8. Acknowledgment & Acceptance</div>
+    
+    <div class="checkbox-group">
+      <label>
+        <input type="checkbox" id="check1" required>
+        <span>I have read and understand this entire Agreement</span>
+      </label>
+      
+      <label>
+        <input type="checkbox" id="check2" required>
+        <span>I understand the payment terms and lifetime rate lock guarantee</span>
+      </label>
+      
+      <label>
+        <input type="checkbox" id="check3" required>
+        <span>I understand the refund policy</span>
+      </label>
+      
+      <label>
+        <input type="checkbox" id="check4" required>
+        <span>I voluntarily assume all risks associated with gym activities</span>
+      </label>
+      
+      <label>
+        <input type="checkbox" id="check5" required>
+        <span>I release Thirty-Three Iron from liability for injuries</span>
+      </label>
+      
+      <label>
+        <input type="checkbox" id="check6" required>
+        <span>I am at least 18 years of age OR have parental consent</span>
+      </label>
+      
+      <label>
+        <input type="checkbox" id="check7" required>
+        <span>I enter into this Agreement freely and without coercion</span>
+      </label>
+    </div>
+  </div>
+
+  <!-- Signature Section -->
+  <div class="signature-section">
+    <h3>Electronic Signature</h3>
+    
+    <p style="text-align: center; margin-bottom: 30px; color: var(--light-gray);">By typing your name below, you agree that this constitutes your legal electronic signature and has the same legal effect as a handwritten signature.</p>
+    
+    <div class="signature-box">
+      <label>Founding Member Signature:</label>
+      <input type="text" id="memberSignature" placeholder="Type your full legal name" required>
+      <p class="signature-date">
+        Date: <input type="date" id="memberSignatureDate" required>
+      </p>
+    </div>
+
+    <div class="signature-box" style="margin-top: 40px; text-align: center; background: transparent; border: none;">
+      <p style="color: var(--chalk);"><strong>FOR THIRTY-THREE IRON LLC:</strong></p>
+      <p style="margin-top: 30px; color: var(--light-gray);">
+        <strong style="color: var(--gold);">Austin Hill</strong>, Co-Founder<br>
+        Date: _____________
+      </p>
+      <p style="margin-top: 30px; color: var(--light-gray);">
+        <strong style="color: var(--gold);">Sammi Hill</strong>, Co-Founder<br>
+        Date: _____________
+      </p>
+    </div>
+  </div>
+
+  <!-- Payment Method -->
+  <div class="form-group">
+    <label for="paymentMethod">Initial Payment Method ($80.00)</label>
+    <select id="paymentMethod" required>
+      <option value="">-- Select Payment Method --</option>
+      <option value="stripe">Credit/Debit Card (Stripe)</option>
+      <option value="cash">Cash</option>
+      <option value="check">Check</option>
+      <option value="bank">Bank Transfer</option>
+    </select>
+  </div>
+
+  <!-- Buttons -->
+  <div class="button-group">
+    <button type="button" class="btn-primary" onclick="submitForm()">Submit Agreement</button>
+    <button type="button" class="btn-secondary" onclick="window.print()">Print / Save as PDF</button>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer-note">
+    <strong style="color: var(--gold);">Founding Member Agreement v1.0</strong><br>
+    Thirty-Three Iron LLC • February 2026<br>
+    Questions? Contact austin@thirtythreeiron.com or (405) 926-5886
+  </div>
+</div>
+
+<script>
+function submitForm() {
+  // Validate all required fields
+  const memberName = document.getElementById('memberName').value;
+  const memberEmail = document.getElementById('memberEmail').value;
+  const memberPhone = document.getElementById('memberPhone').value;
+  const memberSignature = document.getElementById('memberSignature').value;
+  const agreementDate = document.getElementById('agreementDate').value;
+  const paymentMethod = document.getElementById('paymentMethod').value;
+  
+  // Check all checkboxes
+  const allChecked = ['check1', 'check2', 'check3', 'check4', 'check5', 'check6', 'check7']
+    .every(id => document.getElementById(id).checked);
+  
+  if (!memberName || !memberEmail || !memberPhone || !memberSignature || !agreementDate || !paymentMethod) {
+    alert('Please fill out all required fields, check all boxes, and sign the agreement.');
+    return;
+  }
+  
+  if (!allChecked) {
+    alert('Please check all acknowledgment boxes to continue.');
+    return;
+  }
+  
+  if (memberSignature.toLowerCase() !== memberName.toLowerCase()) {
+    if (!confirm('Your signature does not match your name exactly. Continue anyway?')) {
+      return;
+    }
+  }
+  
+  // Collect all form data
+  const formData = {
+    memberName: memberName,
+    memberAddress: document.getElementById('memberAddress').value,
+    memberCity: document.getElementById('memberCity').value,
+    memberPhone: memberPhone,
+    memberEmail: memberEmail,
+    agreementDate: agreementDate,
+    signature: memberSignature,
+    signatureDate: document.getElementById('memberSignatureDate').value,
+    paymentMethod: paymentMethod,
+    timestamp: new Date().toISOString()
+  };
+  
+  // Create mailto link
+  const subject = encodeURIComponent('Founding Member Agreement - ' + memberName);
+  const body = encodeURIComponent(
+    'FOUNDING MEMBER AGREEMENT SUBMISSION\n' +
+    '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n' +
+    'MEMBER INFORMATION:\n' +
+    'Name: ' + formData.memberName + '\n' +
+    'Email: ' + formData.memberEmail + '\n' +
+    'Phone: ' + formData.memberPhone + '\n' +
+    'Address: ' + formData.memberAddress + ', ' + formData.memberCity + '\n\n' +
+    'AGREEMENT DETAILS:\n' +
+    'Agreement Date: ' + formData.agreementDate + '\n' +
+    'Signature: ' + formData.signature + '\n' +
+    'Signature Date: ' + formData.signatureDate + '\n' +
+    'Payment Method: ' + formData.paymentMethod + '\n' +
+    'Submitted: ' + formData.timestamp + '\n\n' +
+    'STATUS: Awaiting payment processing\n\n' +
+    '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n' +
+    'Next Steps:\n' +
+    '1. Process $80 payment\n' +
+    '2. Send confirmation email\n' +
+    '3. Add to founding member tracking spreadsheet\n' +
+    '4. File signed agreement\n\n' +
+    'Sent from thirtythreeiron.com'
+  );
+  
+  // Open email client
+  window.location.href = 'mailto:austin@thirtythreeiron.com?subject=' + subject + '&body=' + body;
+  
+  // Show confirmation
+  alert('✓ Agreement completed!\n\nAn email will open with your information. Please send it to complete your registration.\n\nYou can also print this page for your records.');
+  
+  // Optionally print
+  if (confirm('Would you like to print a copy for your records?')) {
+    window.print();
+  }
+}
+
+// Set today's date as default
+document.addEventListener('DOMContentLoaded', function() {
+  const today = new Date().toISOString().split('T')[0];
+  document.getElementById('agreementDate').value = today;
+  document.getElementById('memberSignatureDate').value = today;
+});
+</script>
+
+</body>
+</html>
