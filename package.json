@@ -1,8 +1,0 @@
-{
-  "name": "thirtythreeiron",
-  "version": "1.0.0",
-  "description": "Thirty-Three Iron — Christ-Centered Strength Training",
-  "dependencies": {
-    "stripe": "^14.0.0"
-  }
-}
