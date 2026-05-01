@@ -1,0 +1,29 @@
+[build]
+  publish = "."
+
+[functions]
+  directory = "netlify/functions"
+
+[[plugins]]
+  package = "@netlify/plugin-emails"
+
+[build.environment]
+  STRIPE_SECRET_KEY = "your-stripe-secret-key"
+
+[[notifications.email]]
+  event = "submission_created"
+  form_name = "investor-interest"
+  to = "thirtythreeiron@gmail.com"
+  subject = "New Investor Inquiry — Thirty-Three Iron"
+
+[[notifications.email]]
+  event = "submission_created"
+  form_name = "sharpen-notify"
+  to = "thirtythreeiron@gmail.com"
+  subject = "New Sharpen App Signup"
+
+[[notifications.email]]
+  event = "submission_created"
+  form_name = "founding-member"
+  to = "thirtythreeiron@gmail.com"
+  subject = "New Founding Member Signup — Thirty-Three Iron"
